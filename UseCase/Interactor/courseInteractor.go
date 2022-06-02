@@ -12,10 +12,10 @@ type userInteractor struct{
 }
 
 type UserInteractor interface{
-	GetCourses () ([]*course.Course, error)
-	FindCourses (c  []*course.Course) (  []*course.Course, error)
-	GetCredit (c *course.Course) (uint, error)
-	FindRequirements (c *course.Course) ([]*course.Course, error)
+	GetCourses (courses []*course.Course) ([]*course.Course, error)
+	FindCoursesByTitle (courses []*course.Course , s []string) (  []*course.Course, error)
+	FindCoursesByID (  courses []*course.Course , ID []uint) ([]*course.Course , error)
+	FindRequirements (courses []*course.Course , ID uint ) ([]*course.Course, error)
 	CreateCourse (c *course.Course) (error)
 	DeleteCourse (c *course.Course) (error)
 }
