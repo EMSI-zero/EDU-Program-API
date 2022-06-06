@@ -23,7 +23,7 @@ func (ci * courseInteractor) FindRequirements (courses []*course.Course , ID uin
 		return nil, err
 	}
 
-	return ci.CoursePresenter.ResponseCourses(cs) , nil
+	return ci.CoursePresenter.ResponsePreReqs(cs)
 }
 
 
