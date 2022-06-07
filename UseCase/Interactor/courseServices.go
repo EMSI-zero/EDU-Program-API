@@ -40,4 +40,14 @@ func (ci * courseInteractor) CreateCourse (c []*course.Course) (error){
 }
 
 
-func (ci * courseInteractor) DeleteCourse (c []*course.Course) (error)
+func (ci * courseInteractor) DeleteCourse (c []*course.Course) (error){
+	
+	for course := range c {
+
+		err := ci.CourseRepository.deleteCourse(course)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
