@@ -6,16 +6,21 @@ import (
 	"Basic-Edu-Program/UseCase/presenter"
 )
 
-type userInteractor struct{
+type courseInteractor struct{
 	CourseRepository repository.CourseRepo 
 	CoursePresenter presenter.CoursePresenter
 }
 
-type UserInteractor interface{
-	GetCourses () ([]*course.Course, error)
-	FindCourses (c  []*course.Course) (  []*course.Course, error)
-	GetCredit (c *course.Course) (uint, error)
-	FindRequirements (c *course.Course) ([]*course.Course, error)
-	CreateCourse (c *course.Course) (error)
-	DeleteCourse (c *course.Course) (error)
+type CourseInteractor interface{
+	GetCourses (courses []*course.Course) ([]*course.Course, error)
+	FindCoursesByTitle (courses []*course.Course , s []string) (  []*course.Course, error)
+	FindCoursesByID (  courses []*course.Course , ID []uint) ([]*course.Course , error)
+	FindRequirements (courses []*course.Course , ID uint ) ([]*course.Course, error)
+	CreateCourse (c []*course.Course) (error)
+	DeleteCourse (c []*course.Course) (error)
 }
+
+func NewCourseInteractor (cr repository.CourseRepo , cp presenter.CoursePresenter) CourseInteractor {
+	return &courseInteractor{cr , cp}
+}
+
