@@ -27,5 +27,17 @@ func (ci * courseInteractor) FindRequirements (courses []*course.Course , ID uin
 }
 
 
-func (ci * courseInteractor) CreateCourse (c []*course.Course) (error)
+func (ci * courseInteractor) CreateCourse (c []*course.Course) (error){
+
+	for course := range c {
+		err := ci.CourseRepository.createCourse(course)
+		if err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+
 func (ci * courseInteractor) DeleteCourse (c []*course.Course) (error)
