@@ -4,7 +4,7 @@ import "Basic-Edu-Program/Domain/models/course"
 
 
 func (ci * courseInteractor) GetCourses (courses []*course.Course) ([]*course.Course, error){
-	cs, err := ci.CourseRepository.findAll(courses)
+	cs, err := ci.CourseRepository.FindAll(courses)
 	if err != nil {
 		return nil, err
 	}
@@ -17,7 +17,7 @@ func (ci * courseInteractor) FindCoursesByTitle (courses []*course.Course , s []
 func (ci * courseInteractor) FindCoursesByID (  courses []*course.Course , ID []uint) ([]*course.Course , error)
 
 func (ci * courseInteractor) FindRequirements (courses []*course.Course , ID uint ) ([]*course.Course, error){
-	cs , err := ci.CourseRepository.findPreReqs(courses)
+	cs , err := ci.CourseRepository.FindPreReqs(ID, courses)
 
 	if err != nil {
 		return nil, err
@@ -30,7 +30,7 @@ func (ci * courseInteractor) FindRequirements (courses []*course.Course , ID uin
 func (ci * courseInteractor) CreateCourse (c []*course.Course) (error){
 
 	for course := range c {
-		err := ci.CourseRepository.createCourse(course)
+		err := ci.CourseRepository.CreateCourse(course)
 		if err != nil {
 			return err
 		}
@@ -44,7 +44,7 @@ func (ci * courseInteractor) DeleteCourse (c []*course.Course) (error){
 	
 	for course := range c {
 
-		err := ci.CourseRepository.deleteCourse(course)
+		err := ci.CourseRepository.DeleteCourse(course)
 		if err != nil {
 			return err
 		}
