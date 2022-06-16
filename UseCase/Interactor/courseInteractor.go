@@ -17,7 +17,7 @@ type CourseInteractor interface{
 	FindCoursesByID (  courses []*course.Course , ID []uint) ([]*course.Course , error)
 	FindRequirements (courses []*course.Course , ID uint ) ([]*course.Course, error)
 	CreateCourse (c []*course.Course) (error)
-	DeleteCourse (c []*course.Course) (error)
+	DeleteCourse (c []uint) (error)
 }
 
 func NewCourseInteractor (cr repository.CourseRepo , cp presenter.CoursePresenter) CourseInteractor {
