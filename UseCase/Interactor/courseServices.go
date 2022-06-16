@@ -29,7 +29,7 @@ func (ci * courseInteractor) FindRequirements (courses []*course.Course , ID uin
 
 func (ci * courseInteractor) CreateCourse (c []*course.Course) (error){
 
-	for course := range c {
+	for _ ,course := range c {
 		err := ci.CourseRepository.CreateCourse(course)
 		if err != nil {
 			return err
@@ -42,9 +42,9 @@ func (ci * courseInteractor) CreateCourse (c []*course.Course) (error){
 
 func (ci * courseInteractor) DeleteCourse (c []*course.Course) (error){
 	
-	for course := range c {
+	for _ , course := range c {
 
-		err := ci.CourseRepository.DeleteCourse(course)
+		err := ci.CourseRepository.DeleteCourse(course.ID)
 		if err != nil {
 			return err
 		}
