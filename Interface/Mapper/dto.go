@@ -6,10 +6,10 @@ import (
 )
 
 type courseDto struct{
-	ID 				uint		`json: "id"`
-	Title			uint		`json: "title"`
-	Credit			uint		`json: "credit"`
-	Description		string		`json: "decription"`
+	ID 				uint		`json: "id,omitempty"`
+	Title			uint		`json: "title,omitempty"`
+	Credit			uint		`json: "credit,omitempty"`
+	Description		string		`json: "decription,omitempty"`
 }
 
 type coursePresenter struct{}
