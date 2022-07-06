@@ -1,9 +1,12 @@
 package interactor
 
-import "Basic-Edu-Program/Domain/model"
+import (
+	"Basic-Edu-Program/Domain/model"
+	"Basic-Edu-Program/UseCase/presenter"
+)
 
 
-func (ci * courseInteractor) GetCourses (courses []*model.Course) ([]*model.Course, error){
+func (ci * courseInteractor) GetCourses (courses []*model.Course) ([]*presenter.DTO, error){
 	cs, err := ci.CourseRepository.FindAll(courses)
 	if err != nil {
 		return nil, err
@@ -13,10 +16,10 @@ func (ci * courseInteractor) GetCourses (courses []*model.Course) ([]*model.Cour
 }
 
 
-func (ci * courseInteractor) FindCoursesByTitle (courses []*model.Course , s []string) (  []*model.Course, error)
-func (ci * courseInteractor) FindCoursesByID (  courses []*model.Course , ID []uint) ([]*model.Course , error)
+func (ci * courseInteractor) FindCoursesByTitle (courses []*model.Course , s []string) (  []*presenter.DTO, error)
+func (ci * courseInteractor) FindCoursesByID (  courses []*model.Course , ID []uint) ([]*presenter.DTO , error)
 
-func (ci * courseInteractor) FindRequirements (courses []*model.Course , ID uint ) ([]*model.Course, error){
+func (ci * courseInteractor) FindRequirements (courses []*model.Course , ID uint ) ([]*presenter.DTO, error){
 	cs , err := ci.CourseRepository.FindPreReqs(ID, courses)
 
 	if err != nil {

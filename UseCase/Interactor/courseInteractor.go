@@ -12,10 +12,10 @@ type courseInteractor struct{
 }
 
 type CourseInteractor interface{
-	GetCourses (courses []*model.Course) ([]*model.Course, error)
-	FindCoursesByTitle (courses []*model.Course , s []string) (  []*model.Course, error)
-	FindCoursesByID (  courses []*model.Course , ID []uint) ([]*model.Course , error)
-	FindRequirements (courses []*model.Course , ID uint ) ([]*model.Course, error)
+	GetCourses (courses []*model.Course) ([]*presenter.DTO, error)
+	FindCoursesByTitle (courses []*model.Course , s []string) (  []*presenter.DTO, error)
+	FindCoursesByID (  courses []*model.Course , ID []uint) ([]*presenter.DTO , error)
+	FindRequirements (courses []*model.Course , ID uint ) ([]*presenter.DTO, error)
 	CreateCourse (c []*model.Course) (error)
 	DeleteCourse (c []uint) (error)
 }

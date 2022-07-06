@@ -16,12 +16,12 @@ func NewCoursePresenter() presenter.CoursePresenter{
 	return &coursePresenter{}
 }
 
-func (cd *coursePresenter) ResponsePreReqs(c []* model.Course) ([]*model.Course , error){
+func (cd *coursePresenter) ResponsePreReqs(c []* model.Course) ([]*presenter.DTO , error){
 	return nil,nil
 }
-func (cd *coursePresenter) ResponseOperation(error) (string){
-	return ""
+func (cd *coursePresenter) ResponseOperation(error) (*presenter.DTO){
+	return nil
 }
-func (cd *coursePresenter) ResponseCourses(c []*model.Course) ([]*model.Course){
+func (cd *coursePresenter) ResponseCourses(c []*model.Course) ([]*presenter.DTO){
 	return nil
 }
