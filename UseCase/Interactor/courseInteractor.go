@@ -1,7 +1,7 @@
 package interactor
 
 import (
-	"Basic-Edu-Program/Domain/models/course"
+	"Basic-Edu-Program/Domain/model"
 	"Basic-Edu-Program/UseCase/repository"
 	"Basic-Edu-Program/UseCase/presenter"
 )
@@ -12,11 +12,11 @@ type courseInteractor struct{
 }
 
 type CourseInteractor interface{
-	GetCourses (courses []*course.Course) ([]*course.Course, error)
-	FindCoursesByTitle (courses []*course.Course , s []string) (  []*course.Course, error)
-	FindCoursesByID (  courses []*course.Course , ID []uint) ([]*course.Course , error)
-	FindRequirements (courses []*course.Course , ID uint ) ([]*course.Course, error)
-	CreateCourse (c []*course.Course) (error)
+	GetCourses (courses []*model.Course) ([]*model.Course, error)
+	FindCoursesByTitle (courses []*model.Course , s []string) (  []*model.Course, error)
+	FindCoursesByID (  courses []*model.Course , ID []uint) ([]*model.Course , error)
+	FindRequirements (courses []*model.Course , ID uint ) ([]*model.Course, error)
+	CreateCourse (c []*model.Course) (error)
 	DeleteCourse (c []uint) (error)
 }
 

@@ -1,10 +1,10 @@
 package presenter
 
-import "Basic-Edu-Program/Domain/models/course"
+import "Basic-Edu-Program/Domain/model"
 
 
 type CoursePresenter interface {
-	ResponsePreReqs(c []* course.Course) ([]*course.Course , error)
+	ResponsePreReqs(c []* model.Course) ([]*model.Course , error)
 	ResponseOperation(error) (string)
-	ResponseCourses(c []*course.Course) ([]*course.Course)
+	ResponseCourses(c []*model.Course) ([]*model.Course)
 }
