@@ -6,7 +6,7 @@ import (
 )
 
 type courseDto struct{
-	ID 				uint		`json: "id,omitempty"`
+	ID 				uint		`json: "id"`
 	Title			uint		`json: "title,omitempty"`
 	Credit			uint		`json: "credit,omitempty"`
 	Description		string		`json: "decription,omitempty"`
